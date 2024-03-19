@@ -138,7 +138,14 @@ public class Artifact extends DTO {
 	public String				id;
 	public Version				version;
 	public String				md5;
+	public String				sha256;
+	public String				sha512;
 	public long					download_size;
 	public String				format;
+	public String				mavenGroupId;
+	public String				mavenArtifactId;
+	public String				mavenVersion;
+	public String				mavenClassifier;
+	public String				mavenType;
 
 }

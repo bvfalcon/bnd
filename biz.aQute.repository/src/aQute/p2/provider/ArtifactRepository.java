@@ -134,6 +134,8 @@ class ArtifactRepository extends XMLBase {
 							artifact.id = xmlArtifact.id;
 							artifact.version = new Version(xmlArtifact.version);
 							artifact.md5 = artifactProperties.get("download.md5");
+							artifact.sha256 = artifactProperties.get("download.checksum.sha-256");
+							artifact.sha512 = artifactProperties.get("download.checksum.sha-512");
 							artifact.format = xmlArtifact.format;
 							String download_size = artifactProperties.getOrDefault("download.size", "-1L");
 							try {
@@ -141,6 +143,11 @@ class ArtifactRepository extends XMLBase {
 							} catch (NumberFormatException e) {
 								artifact.download_size = -1L;
 							}
+							artifact.mavenGroupId = artifactProperties.get("maven-groupId");
+							artifact.mavenArtifactId = artifactProperties.get("maven-artifactId");
+							artifact.mavenVersion = artifactProperties.get("maven-version");
+							artifact.mavenType = artifactProperties.get("maven-type");
+							artifact.mavenClassifier = artifactProperties.get("maven-classifier");
 							artifacts.add(artifact);
 							break;
 						}
