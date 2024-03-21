@@ -134,6 +134,7 @@ class ArtifactRepository extends XMLBase {
 							artifact.id = xmlArtifact.id;
 							artifact.version = new Version(xmlArtifact.version);
 							artifact.md5 = artifactProperties.get("download.md5");
+							artifact.sha1 = artifactProperties.get("download.checksum.sha-1");
 							artifact.sha256 = artifactProperties.get("download.checksum.sha-256");
 							artifact.sha512 = artifactProperties.get("download.checksum.sha-512");
 							artifact.format = xmlArtifact.format;
