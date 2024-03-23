@@ -1,6 +1,8 @@
 package aQute.p2.api;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.osgi.framework.Version;
 
@@ -138,15 +140,19 @@ public class Artifact extends DTO {
 	public String				id;
 	public Version				version;
 	public String				md5;
-	public String				sha1;
-	public String				sha256;
-	public String				sha512;
 	public long					download_size;
 	public String				format;
-	public String				mavenGroupId;
-	public String				mavenArtifactId;
-	public String				mavenVersion;
-	public String				mavenClassifier;
-	public String				mavenType;
+	private Map<String, String>	properties		= new HashMap<>(0);
 
+	public void setProperties(Map<String, String> properties) {
+		this.properties = properties;
+	}
+
+	public Map<String, String> getProperties() {
+		return properties;
+	}
+
+	public String getProperty(String name) {
+		return properties.get(name);
+	}
 }
